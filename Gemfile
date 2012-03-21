@@ -10,13 +10,14 @@ group :production do
 end
 
 group :development do
-	gem 'rspec-rails'
 	gem 'pg'
+	gem 'rspec-rails'	
 end
 
 group :test do
 	gem 'rspec'
 	gem 'webrat'
+	gem 'spork'
 end
 
 

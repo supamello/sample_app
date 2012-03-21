@@ -7,20 +7,8 @@ Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
-  ENV["RAILS_ENV"] ||= 'test'
-  unless defined? (Rails)
-    require File.dirname(_FILE_) + "/../config/environment"
 end
 
-Spork.each_run do
-  # This code will be run each time you run your specs.
-
-    load "#{Rails.root}/config/routes.rb"
-    Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f }
-  
-  # supamello - see: http://mikbe.tk/2011/02/10/blazingly-fast-tests/
-
-end
 
 # --- Instructions ---
 # Sort the contents of this file into a Spork.prefork and a Spork.each_run

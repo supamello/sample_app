@@ -12,10 +12,13 @@ Spork.prefork do
     require File.dirname(_FILE_) + "/../config/environment"
 end
 
-require 'rspec/rails'
-
 Spork.each_run do
   # This code will be run each time you run your specs.
+
+    load "#{Rails.root}/config/routes.rb"
+    Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f }
+  
+  # supamello - see: http://mikbe.tk/2011/02/10/blazingly-fast-tests/
 
 end
 
@@ -69,7 +72,7 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
-  config.mock_with :rspec
+
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -83,5 +86,6 @@ RSpec.configure do |config|
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
-  Activesupport::Dependencies.clear
+  
+  ActiveSupport::Dependencies.clear
 end

@@ -2,7 +2,7 @@ module ApplicationHelper
   
   # Return a title on a per-page basis.
   def title
-    base_title = "Fractal Space Thermometer Sample App"
+    base_title = "Fractal Space Thermometer"
     if @title.nil?
       base_title
     else

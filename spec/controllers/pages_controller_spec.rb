@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe PagesController do
   render_views
-
+  
   before(:each) do 
     @base_title ="Fractal Space Thermometer"
-    
   end
 
   describe "GET 'home'" do
